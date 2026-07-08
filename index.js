@@ -8,9 +8,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 let daftarProject = [
-  // { id: 1, nama: "Ayobuatbaik", deskripsi: "...", image: "/img/Porto1.avif", link: "https://ayobuatbaik.com" },
-  // { id: 2, nama: "Andre Raditya", deskripsi: "...", image: "/img/andreradityaguru.webp", link: "https://andreraditya.guru" },
-  // { id: 3, nama: "Sayf El Falah", deskripsi: "...", image: "/img/porto-selfa.avif", link: "https://selfa.sch.id" },
+  { id: 1, nama: "Ayobuatbaik", deskripsi: "...", image: "/img/Porto1.avif", link: "https://ayobuatbaik.com" },
+  { id: 2, nama: "Andre Raditya", deskripsi: "...", image: "/img/andreradityaguru.webp", link: "https://andreraditya.guru" },
+  { id: 3, nama: "Sayf El Falah", deskripsi: "...", image: "/img/porto-selfa.avif", link: "https://selfa.sch.id" },
 ];
 
 // Setup Express Handlebars
