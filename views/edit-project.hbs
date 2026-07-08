@@ -1,0 +1,45 @@
+<div class="container mt-5" style="max-width: 800px;">
+  <div class="card border-0 shadow-sm rounded-3">
+    <div class="card-body p-4 p-md-5">
+      <div class="text-center mb-4">
+        <h3 class="fw-bold mb-1">Edit Project</h3>
+        <p class="text-muted small">edit portofoli</p>
+      </div>
+      
+      <form action="/project-edit/{{project.id}}" method="post">
+        <div class="row g-4">
+          <!-- Kolom Kiri -->
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="inputNama" class="form-label fw-semibold text-secondary small mb-1">NAMA PROJECT</label>
+              <input type="text" class="form-control bg-light border-0" id="inputNama" name="nama" value="{{project.nama}}" required />
+            </div>
+
+            <div class="mb-3">
+              <label for="inputImage" class="form-label fw-semibold text-secondary small mb-1">LINK GAMBAR</label>
+              <input type="text" class="form-control bg-light border-0" id="inputImage" name="image" value="{{project.image}}" placeholder="/img/..." required />
+            </div>
+
+            <div class="mb-3">
+              <label for="inputLink" class="form-label fw-semibold text-secondary small mb-1">URL KUNJUNGI</label>
+              <input type="url" class="form-control bg-light border-0" id="inputLink" name="link" value="{{project.link}}" placeholder="https://" />
+            </div>
+          </div>
+
+          <!-- Kolom Kanan -->
+          <div class="col-md-6 d-flex flex-column">
+            <div class="mb-3 flex-grow-1 d-flex flex-column">
+              <label for="inputDeskripsi" class="form-label fw-semibold text-secondary small mb-1">DESKRIPSI</label>
+              <textarea class="form-control bg-light border-0 flex-grow-1" id="inputDeskripsi" name="deskripsi" style="min-height: 165px; resize: none;" required>{{project.deskripsi}}</textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end mt-4 pt-3 border-top">
+          <a href="/my-project" class="btn btn-light px-4 me-2">Batal</a>
+          <button type="submit" class="btn btn-dark px-4 shadow-sm">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

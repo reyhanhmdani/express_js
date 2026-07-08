@@ -2,40 +2,31 @@
   <h2 class="fw-bold">My Projects</h2>
 </div>
 
+<a href="add-project" class="btn btn-primary btn-lg active mb-5" role="button" aria-pressed="true">Tambah project</a>
+
 <div class="row g-4">
-  <!-- Project 1 -->
-  <div class="col-md-4">
-    <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-      <img src="/img/Porto1.avif" class="card-img-top" alt="Project 1" style="height: 250px; object-fit: cover;">
-      <div class="card-body p-4">
-        <h5 class="card-title fw-bold">Ayobuatbaik (web donasi)</h5>
-        <p class="card-text text-secondary">Applikasi yang saya bikin berbasil laravel, ini web app yang di gunakan untuk di sebuah tempat di klaten, dan bisa di gunakan untuk orang umum juga, yaitu kegunaanya untuk donasi ke program program suatu lembaga</p>
-        <a href="ayobuatbaik.com" class="btn btn-outline-primary btn-sm rounded-pill">Read More</a>
-      </div>
-    </div>
-  </div>
+  {{#if projects}}
+    {{#each projects}}
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+          <img src="{{this.image}}" class="card-img-top" alt="{{this.nama}}" style="height: 250px; object-fit: cover;" />
+          <div class="card-body">
+            <h5 class="card-title">{{this.nama}}</h5>
+            <p class="card-text">{{this.deskripsi}}</p>
 
-  <!-- Project 2 -->
-  <div class="col-md-4">
-    <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-      <img src="/img/andreradityaguru.webp" class="card-img-top" alt="Project 2" style="height: 250px; object-fit: cover;">
-      <div class="card-body p-4">
-        <h5 class="card-title fw-bold">andre raditya</h5>
-        <p class="card-text text-secondary">Sebuah website pribadi ustad andre raditya</p>
-        <a href="andreraditya.guru" class="btn btn-outline-primary btn-sm rounded-pill">Read More</a>
+            <a href="/project/{{this.id}}" class="btn btn-sm btn-primary">Detail</a>
+            <a href="{{this.link}}" target="_blank" class="btn btn-sm btn-info">Kunjungi</a>
+            <a href="/project-edit/{{this.id}}" class="btn btn-sm btn-warning">Edit</a>
+            <a
+              href="/project-delete/{{this.id}}"
+              class="btn btn-sm btn-danger"
+              onclick="return confirm('Apakah kamu yakin ingin menghapus project ini?');"
+            >Delete</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-
-  <!-- Project 3 -->
-  <div class="col-md-4">
-    <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-      <img src="/img/porto-selfa.avif" class="card-img-top" alt="Project 3" style="height: 250px; object-fit: cover;">
-      <div class="card-body p-4">
-        <h5 class="card-title fw-bold">sayf el falah</h5>
-        <p class="card-text text-secondary">sebuah web lembaga sekolah untuk menampilkan informasi hal hal berkaitan dengan sayf el falah</p>
-        <a href="selfa.sch.id" class="btn btn-outline-primary btn-sm rounded-pill">Read More</a>
-      </div>
-    </div>
-  </div>
+    {{/each}}
+  {{else}}
+    <p>ga ada project nih</p>
+  {{/if}}
 </div>
