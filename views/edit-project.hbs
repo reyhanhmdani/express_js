@@ -5,19 +5,27 @@
         <h3 class="fw-bold mb-1">Edit Project</h3>
         <p class="text-muted small">edit portofoli</p>
       </div>
-      
+
       <form action="/project-edit/{{project.id}}" method="post">
         <div class="row g-4">
           <!-- Kolom Kiri -->
           <div class="col-md-6">
             <div class="mb-3">
               <label for="inputNama" class="form-label fw-semibold text-secondary small mb-1">NAMA PROJECT</label>
-              <input type="text" class="form-control bg-light border-0" id="inputNama" name="nama" value="{{project.nama}}" required />
+              <input type="text" class="form-control bg-light border-0" id="inputNama" name="title" value="{{project.title}}" required />
             </div>
 
             <div class="mb-3">
               <label for="inputImage" class="form-label fw-semibold text-secondary small mb-1">LINK GAMBAR</label>
-              <input type="text" class="form-control bg-light border-0" id="inputImage" name="image" value="{{project.image}}" placeholder="/img/..." required />
+              <input
+                type="text"
+                class="form-control bg-light border-0"
+                id="inputImage"
+                name="image"
+                value="{{project.image}}"
+                placeholder="/img/..."
+                required
+              />
             </div>
 
             <div class="mb-3">
@@ -26,11 +34,32 @@
             </div>
           </div>
 
+          <div class="mb-3">
+            <label class="form-label fw-semibold text-secondary small mb-1">TECHNOLOGIES</label>
+            <div class="d-flex flex-wrap gap-3">
+
+              {{#each technologies}}
+                <div class="form-check">
+                  <!-- Tambahkan if isChecked di bagian akhir input -->
+                  <input class="form-check-input" type="checkbox" name="tech" value="{{this.id}}" id="tech-{{this.id}}" {{#if this.isChecked}}checked{{/if}} />
+                  <label class="form-check-label" for="tech-{{this.id}}">{{this.name}}</label>
+                </div>
+              {{/each}}
+
+            </div>
+          </div>
+
           <!-- Kolom Kanan -->
           <div class="col-md-6 d-flex flex-column">
             <div class="mb-3 flex-grow-1 d-flex flex-column">
               <label for="inputDeskripsi" class="form-label fw-semibold text-secondary small mb-1">DESKRIPSI</label>
-              <textarea class="form-control bg-light border-0 flex-grow-1" id="inputDeskripsi" name="deskripsi" style="min-height: 165px; resize: none;" required>{{project.deskripsi}}</textarea>
+              <textarea
+                class="form-control bg-light border-0 flex-grow-1"
+                id="inputDeskripsi"
+                name="deskripsi"
+                style="min-height: 165px; resize: none;"
+                required
+              >{{project.deskripsi}}</textarea>
             </div>
           </div>
         </div>

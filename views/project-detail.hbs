@@ -8,16 +8,28 @@
 
   <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
     <!-- Gambar Full Width -->
-    <img src="{{project.image}}" class="card-img-top" alt="{{project.nama}}" style="max-height: 400px; object-fit: cover;" />
-    
+    <img src="{{project.image}}" class="card-img-top" alt="{{project.title}}" style="max-height: 400px; object-fit: cover;" />
+
     <div class="card-body p-4 p-md-5">
       <!-- Header Konten -->
       <div class="d-flex justify-content-between align-items-start mb-4">
         <div>
-          <h2 class="fw-bold mb-1">{{project.nama}}</h2>
+          <h2 class="fw-bold mb-1">{{project.title}}</h2>
           <p class="text-muted small mb-0">Project Details</p>
         </div>
-        
+        <div class="mb-4">
+          <h6 class="fw-bold text-secondary mb-2">Tech yang di pakek</h6>
+          <div class="d-flex flex-wrap gap-2">
+
+            {{#each project.tech}}
+              <span class="badge rounded-pill text-bg-dark px-3 py-2 shadow-sm border">
+                {{this}}
+              </span>
+            {{/each}}
+
+          </div>
+        </div>
+
         {{#if project.link}}
           <a href="{{project.link}}" target="_blank" class="btn btn-dark px-4 rounded-pill">
             Kunjungi Web
@@ -25,7 +37,7 @@
         {{/if}}
       </div>
 
-      <hr class="text-muted opacity-25 mb-4">
+      <hr class="text-muted opacity-25 mb-4" />
 
       <!-- Deskripsi -->
       <h6 class="fw-semibold text-secondary mb-3">TENTANG PROJECT</h6>

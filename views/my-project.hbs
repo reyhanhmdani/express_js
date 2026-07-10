@@ -4,15 +4,31 @@
 
 <a href="add-project" class="btn btn-primary btn-lg active mb-5" role="button" aria-pressed="true">Tambah project</a>
 
+{{#if flash}}
+  <div class="alert alert-{{flash.type}} alert-dismissible fade show" role="alert">
+    {{flash.message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{{/if}}
+
 <div class="row g-4">
   {{#if projects}}
     {{#each projects}}
       <div class="col-md-4">
         <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-          <img src="{{this.image}}" class="card-img-top" alt="{{this.nama}}" style="height: 250px; object-fit: cover;" />
+          <img src="{{this.image}}" class="card-img-top" alt="{{this.title}}" style="height: 250px; object-fit: cover;" />
           <div class="card-body">
-            <h5 class="card-title">{{this.nama}}</h5>
-            <p class="card-text">{{this.deskripsi}}</p>
+            <h5 class="card-title fw-bold text-dark">{{this.title}}</h5>
+            <p class="card-text text-secondary mb-4">{{this.deskripsi}}</p>
+
+            <!-- Tech Stack Section (Dari Array String di DB/Dummy Data) -->
+            <div class="mb-4 d-flex flex-wrap gap-2">
+              {{#each this.tech}}
+                <span class="badge rounded-pill text-bg-dark px-3 py-2 shadow-sm border">
+                  {{this}}
+                </span>
+              {{/each}}
+            </div>
 
             <a href="/project/{{this.id}}" class="btn btn-sm btn-primary">Detail</a>
             <a href="{{this.link}}" target="_blank" class="btn btn-sm btn-info">Kunjungi</a>

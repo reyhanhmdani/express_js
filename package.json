@@ -1,9 +1,12 @@
 {
   "dependencies": {
+    "connect-flash": "^0.1.1",
     "express": "^5.2.1",
     "express-handlebars": "^9.0.1",
+    "express-session": "^1.19.0",
     "hbs": "^4.2.1",
-    "nodemon": "^3.1.14"
+    "nodemon": "^3.1.14",
+    "pg": "^8.22.0"
   },
   "name": "latihan_1",
   "version": "1.0.0",
